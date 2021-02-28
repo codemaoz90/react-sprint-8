@@ -1,0 +1,53 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+:root {
+	font-size: 10px;
+}
+body {
+	display: flex;
+	height: 100vh;
+	align-items: center;
+	justify-content: center;
+	background-color: #1abc9c;
+}
+h1 {
+	font-size: 3rem;
+}
+p {
+	font-size: 1.8rem;
+}
+.card {
+	padding: 2rem;
+	width: 500px;
+	text-align: center;
+	background: white;
+	border-radius: 0.3rem;
+	box-shadow: 10px 10px 5px #aaaaaa;
+}
+
+.card .card-title {
+	color: #16a085;
+}
+.card .card-text {
+	margin-top: 1rem;
+	font-style: italic;
+}
+.card .card-text::after {
+	content: '"';
+}
+.card .card-text::before {
+	content: '"';
+}
+.card .card-button {
+	margin-top: 1.5rem;
+	color: white;
+	border: none;
+	background-color: #16a085;
+	padding: 1.2rem;
+	border-radius: 0.5rem;
+	outline: none;
+	cursor: pointer;
+}

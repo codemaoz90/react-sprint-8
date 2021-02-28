@@ -1,8 +1,9 @@
-export default () => {
+import Card from "./components/Card/Card.js";
 
-    return (
-        <div>
-            hello World!
-        </div>
-    );
+export default () => {
+	return (
+		<div>
+			<Card />
+		</div>
+	);
 };
