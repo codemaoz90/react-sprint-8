@@ -1,13 +1,13 @@
 import "./Card.css";
-export default function Card() {
+
+export default function Card({ id, joke, getJoke }) {
 	return (
 		<div className="card">
 			<h1 className="card-title">My first Joke</h1>
-			<p className="card-text">
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
-				doloribus corrddupti suscipit distinctio optio officiis.
-			</p>
-			<button className="card-button">Siguiente</button>
+			<p className="card-text">{joke}</p>
+			<button onClick={getJoke} className="card-button">
+				Siguiente
+			</button>
 		</div>
 	);
 }
