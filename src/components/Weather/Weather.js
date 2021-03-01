@@ -1,5 +1,5 @@
 import "./Weather.css";
-import { useState } from "react";
+
 export default function Weather({ name, temp, icon }) {
 	const mainTemp = (temp - 273).toFixed(2);
 	const icona = `http://openweathermap.org/img/wn/${icon}@2x.png`;

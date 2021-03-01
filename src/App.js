@@ -27,7 +27,7 @@ export default () => {
 	// Fetch weather API
 
 	const [dataWeather, setDataWeather] = useState([]);
-	const [stateWelcome, setStateWelcome] = useState(false);
+
 	useEffect(() => {
 		const getTime = async () => {
 			const API_KEY = "33a600a56bb0a3b1cfc710f225d1ae6f";
@@ -48,21 +48,10 @@ export default () => {
 		console.log(dataWeather);
 	}, []);
 
-	if (stateWelcome) {
-		return (
-			<>
-				{/* <Weather {...dataWeather} /> */}
-				<Card {...data} getJoke={getJoke} />
-			</>
-		);
-	} else {
-		return (
-			<div>
-				<Welcome
-					setStateWelcome={setStateWelcome}
-					stateWelcome={stateWelcome}
-				/>
-			</div>
-		);
-	}
+	return (
+		<>
+			{/* <Weather {...dataWeather} /> */}
+			<Card {...data} getJoke={getJoke} />
+		</>
+	);
 };
