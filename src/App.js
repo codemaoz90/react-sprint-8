@@ -4,7 +4,6 @@ import Welcome from "./components/Welcome/Welcome";
 import { useState, useEffect } from "react";
 import axios from "axios";
 export default () => {
-	const [access, setAccess] = useState(false);
 	// Fetch JOKES API
 	const [data, setData] = useState([]); // state to fetch data
 	const [joke, setJoke] = useState(false); // boolean state to play with data.
@@ -28,31 +27,42 @@ export default () => {
 	// Fetch weather API
 
 	const [dataWeather, setDataWeather] = useState([]);
-
+	const [stateWelcome, setStateWelcome] = useState(false);
 	useEffect(() => {
 		const getTime = async () => {
 			const API_KEY = "33a600a56bb0a3b1cfc710f225d1ae6f";
 			const city = "Barcelona";
 			const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`;
-			if (dataWeather.length === 0) {
-				const response = await fetch(url, {
-					method: "GET",
-					headers: {
-						Accept: "application/json",
-					},
-				});
+			const response = await fetch(url, {
+				method: "GET",
+				headers: {
+					Accept: "application/json",
+				},
+			});
 
-				const { name, weather, main } = await response.json();
-				setDataWeather({ name, ...weather[0], ...main });
-			}
+			const { name, weather, main } = await response.json();
+			setDataWeather({ name, ...weather[0], ...main });
 		};
-		getTime();
+
+		// getTime();
+		console.log(dataWeather);
 	}, []);
 
-	return (
-		<>
-			<Weather {...dataWeather} />
-			<Card {...data} getJoke={getJoke} />
-		</>
-	);
+	if (stateWelcome) {
+		return (
+			<>
+				{/* <Weather {...dataWeather} /> */}
+				<Card {...data} getJoke={getJoke} />
+			</>
+		);
+	} else {
+		return (
+			<div>
+				<Welcome
+					setStateWelcome={setStateWelcome}
+					stateWelcome={stateWelcome}
+				/>
+			</div>
+		);
+	}
 };
